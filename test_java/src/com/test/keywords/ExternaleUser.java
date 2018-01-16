@@ -1,4 +1,4 @@
-package com.text.keywords;
+package com.test.keywords;
 
 import java.io.Externalizable;
 import java.io.IOException;

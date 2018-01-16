@@ -1,4 +1,4 @@
-package com.text.annotation;
+package com.test.annotation;
 
 import java.lang.reflect.Field;
 

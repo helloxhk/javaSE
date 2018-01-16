@@ -1,4 +1,4 @@
-package com.text.keywords;
+package com.test.keywords;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

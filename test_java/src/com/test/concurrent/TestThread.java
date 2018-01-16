@@ -1,4 +1,4 @@
-package com.text.concurrent;
+package com.test.concurrent;
 
 public class TestThread implements Runnable {
 
