@@ -17,14 +17,14 @@ public class Garbage {
 				+ "total created = " + Book.created + "\n"
 				+ "total finalized = " + Book.finalized);
 		
-		if(true){
+		if(false){
 			System.out.println("gc()");
 			System.gc();
 			System.out.println("runFinalization()");
 			System.runFinalization();
 		}
 		
-		if(false){
+		while(true){
 			System.runFinalizersOnExit(true);
 		}
 		
