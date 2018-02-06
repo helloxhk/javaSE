@@ -1,5 +1,7 @@
 package com.test.test;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,14 +41,19 @@ public class TestClass {
 		}*/
 //		X x = new X();
 //		System.out.println(x);
-		System.out.println('a' + 1);
+//		System.out.println('a' + 1);
+		try {
+			System.out.println(InetAddress.getByName("DESKTOP-JH3L89J"));
+			System.out.println(InetAddress.getByName("localhost"));
+			System.out.println(InetAddress.getByName(null));
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 	}
 }
 
 class A implements InterfaceA {
-	@Override
-	public void set() {
-	}
+	public void set() {}
 }
 
 interface InterfaceA {
