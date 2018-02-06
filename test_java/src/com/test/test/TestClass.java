@@ -1,5 +1,15 @@
 package com.test.test;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+import java.util.Vector;
+
 public class TestClass {
 	public static void main(String[] args) {
 //		System.out.println(AbstractA.PI);
@@ -15,6 +25,21 @@ public class TestClass {
 //		System.out.println(a.l);
 //		System.out.println(a.f);
 //		System.out.println(a.d);
+		/*Vector<Object> vector = new Vector<>();
+		Enumeration<Object> elements = vector.elements();
+		while(elements.hasMoreElements()){
+			Object obj = elements.nextElement();
+			System.out.println(obj);
+		}
+		List<Object> list = new ArrayList<>();
+		Iterator<Object> iterator = list.iterator();
+		if(iterator.hasNext()){
+			Object obj = iterator.next();
+			System.out.println(obj);
+		}*/
+//		X x = new X();
+//		System.out.println(x);
+		System.out.println('a' + 1);
 	}
 }
 
@@ -51,3 +76,9 @@ final class FinalA {
 	public static final String B = "HELLO WORLD!"; 
 }
 
+class X {
+	@Override
+	public String toString() {
+		return "xx : " + this;
+	}
+}
