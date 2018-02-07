@@ -11,6 +11,7 @@ public class UdpServer {
 		byte[] buf = new byte[1024];
 		DatagramPacket dp = new DatagramPacket(buf, buf.length);
 		try {
+			@SuppressWarnings("resource")
 			DatagramSocket socket = new DatagramSocket(65530);
 			try {
 				while(true){
