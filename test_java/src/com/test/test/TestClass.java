@@ -42,13 +42,25 @@ public class TestClass {
 //		X x = new X();
 //		System.out.println(x);
 //		System.out.println('a' + 1);
-		try {
-			System.out.println(InetAddress.getByName("DESKTOP-JH3L89J"));
-			System.out.println(InetAddress.getByName("localhost"));
-			System.out.println(InetAddress.getByName(null));
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			System.out.println(InetAddress.getByName("DESKTOP-JH3L89J"));
+//			System.out.println(InetAddress.getByName("localhost"));
+//			System.out.println(InetAddress.getByName(null));
+//		} catch (UnknownHostException e) {
+//			e.printStackTrace();
+//		}
+//		int a = 1;
+//		a = a++;
+//		a = a + 1;
+		
+		int a =1;
+		int b =2;
+		a=a++; 
+		 b=a++; 
+		System.out.println(a); //输出1
+		 System.out.println(b); //取消7.9行注释，注释掉6.8行，输出2
+		
+		
 	}
 }
 
