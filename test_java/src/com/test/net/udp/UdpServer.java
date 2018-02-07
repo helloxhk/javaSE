@@ -7,6 +7,7 @@ import java.net.SocketException;
 
 public class UdpServer {
 	public static void main(String[] args) {
+		System.out.println("server start");
 		byte[] buf = new byte[1024];
 		DatagramPacket dp = new DatagramPacket(buf, buf.length);
 		try {
