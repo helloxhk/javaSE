@@ -72,7 +72,7 @@ interface InterfaceA {
 	int i = (int) (Math.random() * 10);
 	long l = (long) (Math.random() * 10);
 	float f = (float) (Math.random() * 10);
-	double d = (Math.random() * 10);
+	double d = Math.random() * 10;
 	void set();
 }
 
