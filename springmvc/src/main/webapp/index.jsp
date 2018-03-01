@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h>${user.realname }</h>
-	<a href="${pageContext.request.contextPath}/user/get?id=1">获取用户名</a>
+	<a href="${pageContext.request.contextPath}/user/get?id=100000000">获取用户名</a>
 </body>
 </html>

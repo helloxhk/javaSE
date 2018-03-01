@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssm.domain.User;
 
-@Service
+@Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
