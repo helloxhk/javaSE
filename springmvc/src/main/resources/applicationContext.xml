@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/mvc 
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd 
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop.xsd 
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd ">
+						
+    <!-- 加载资源文件 --> 
+    <bean id="propertyFactory" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    	<property name="locations" value="classpath:*.properties"/>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+    	<property name="properties" ref="propertyFactory"/>
+    </bean>
+    <!-- 注解扫描 --> 
+	<mvc:annotation-driven/>
+	<!-- 组件扫描 -->
+	<context:component-scan base-package="com.ssm"/>
+	<!-- 数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${driverClass}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+	<!-- sqlSessionFactory -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocations" value="classpath:com/ssm/dao/*.xml"/>
+		<!-- <property name="typeAliasesPackage" value="com.ssm.domain"/> -->
+	</bean>
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 通知 -->	
+	<tx:advice id="advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" isolation="DEFAULT"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- aop事务配置 -->
+	<aop:config>
+		<aop:advisor advice-ref="advice" pointcut="execution (* com.ssm.service.*.*(..))"/>
+	</aop:config>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>     
