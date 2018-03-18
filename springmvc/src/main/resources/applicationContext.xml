@@ -64,4 +64,14 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.ssm.dao"/>
 	</bean>
+	
+	<bean id="myAspect" class="com.ssm.cglib.MyAspect"/>
+	
+	<aop:config proxy-target-class="true">
+		<aop:pointcut expression="execution (* com.ssm.cglib.*.*(..))" id="pc"/>
+		<aop:aspect ref="myAspect">
+			<aop:before method="before" pointcut-ref="pc"/>
+		</aop:aspect>
+	</aop:config>
+	
 </beans>     
